@@ -20,3 +20,7 @@ Content-Type: application/json
   "title":"Legend",
   "author":"Modric"
 }
+
+### searching
+
+GET http://localhost:3000/book1/?offset=5&limit=5&order=ASC&order_by=book_id

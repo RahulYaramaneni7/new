@@ -69,3 +69,20 @@ app.put('/book/:bookId',async(request,response)=>{
   response.send("Updated Successfully");
 });
 
+app.get('/book1/',async(request,response)=>{
+  const {
+      offset=5,
+      limit=4,
+      order='DESC',
+      order_by='book_id'
+    }=request.query;
+
+    const query1=`SELECT * FROM BOOK 
+                  ORDER BY ${order_by} ${order} 
+                  LIMIT ${limit} 
+                  OFFSET ${offset}`;
+    const answer=await db.all(query1);
+    response.send(answer);
+
+
+});

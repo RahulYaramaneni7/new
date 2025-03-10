@@ -55,3 +55,17 @@ app.post("/book/",async(request,response)=>{
   response.send({book_id:book_id});
 });
 
+app.put('/book/:bookId',async(request,response)=>{
+  const {bookId}=request.params;
+  const {title,author}=request.body;
+  const query=`UPDATE 
+                book 
+                SET 
+                  title='${title}',
+                  author='${author}' 
+                where
+                  book_id=${bookId}`;
+  await db.run(query);
+  response.send("Updated Successfully");
+});
+

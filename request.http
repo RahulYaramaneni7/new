@@ -11,3 +11,12 @@ GET http://localhost:3000/books/
 
 ### Test GET API - Retrieve a Book by ID
 GET http://localhost:3000/book/1
+
+### update the book
+PUT http://localhost:3000/book/10
+Content-Type: application/json
+
+{
+  "title":"Legend",
+  "author":"Modric"
+}

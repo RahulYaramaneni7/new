@@ -1,0 +1,13 @@
+POST http://localhost:3000/book/
+Content-Type: application/json
+
+{
+  "title": "Maestro",
+  "author": "Toni Kroos"
+}
+
+### Test GET API - Retrieve All Books
+GET http://localhost:3000/books/
+
+### Test GET API - Retrieve a Book by ID
+GET http://localhost:3000/book/1

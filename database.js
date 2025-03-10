@@ -36,3 +36,22 @@ app.get("/books", async (request, response) => {
     response.status(500).json({ error: e.message });
   }
 });
+
+
+
+app.get("/book/:bookId", async (request, response) => {
+  const { bookId } = request.params;
+  const getBookQuery = `SELECT * FROM book WHERE book_id = ${bookId};`;
+
+  const book = await db.get(getBookQuery);
+  response.send(book);
+});
+
+app.post("/book/",async(request,response)=>{
+  const {title,author}=request.body;
+  const addquery=`INSERT INTO book (title, author) VALUES('${title}', '${author}')`;
+  const dbresponse=await db.run(addquery);
+  const book_id=dbresponse.lastID;
+  response.send({book_id:book_id});
+});
+

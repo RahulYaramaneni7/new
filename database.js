@@ -2,9 +2,10 @@ const express = require("express");
 const path = require("path");
 const { open } = require("sqlite");
 const sqlite3 = require("sqlite3");
+const bcrypt=require('bcrypt');
 
 const app = express();
-app.use(express.json()); // Enables JSON body parsing
+app.use(express.json());
 
 const dbPath = "C:\\Users\\Rahul\\goodreads.db";
 
@@ -83,6 +84,29 @@ app.get('/book1/',async(request,response)=>{
                   OFFSET ${offset}`;
     const answer=await db.all(query1);
     response.send(answer);
+});
 
+app.post('/user/', async (request, response) => {
+  const { username, password, name, location } = request.body;
+  const hashpassword = await bcrypt.hash(request.body.password, 10);
 
+  const selectUserQuery = `SELECT * FROM user WHERE username = '${username}'`;
+  const dbUser = await db.get(selectUserQuery);
+
+  if (dbUser === undefined) {
+    const createUserQuery = `INSERT INTO user
+     (username, name, password, location) 
+     VALUES (
+        '${username}',
+        '${name}',
+        '${hashpassword}',
+        '${location}'
+      )`;
+    const dbResponse = await db.run(createUserQuery);
+    const newUserId = dbResponse.lastID;
+    response.send(`Created new user with ${newUserId}`);
+  } else {
+    response.status(400);
+    response.send("User already exists");
+  }
 });

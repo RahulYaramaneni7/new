@@ -18,6 +18,7 @@
   "homepage": "https://github.com/RahulYaramaneni7/new#readme",
   "description": "",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "date-fns": "^4.1.0",
     "express": "^4.21.2",
     "sqlite": "^5.1.1",

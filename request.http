@@ -24,3 +24,15 @@ Content-Type: application/json
 ### searching
 
 GET http://localhost:3000/book1/?offset=5&limit=5&order=ASC&order_by=book_id
+
+
+### Authentication
+POST http://localhost:3000/user/
+Content-Type:application/json
+
+{
+  "name":"Rahul",
+  "username":"Rahul7",
+  "location":"Kurnool",
+  "password":"Rahul@1234"
+}

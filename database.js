@@ -106,6 +106,7 @@ app.post('/user/', async (request, response) => {
     const newUserId = dbResponse.lastID;
     response.send(`Created new user with ${newUserId}`);
   } else {
+    console.log("rahul");
     response.status(400);
     response.send("User already exists");
   }

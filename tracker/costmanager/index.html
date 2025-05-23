@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Cost Manager</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>Project Cost Manager</h1>
+
+    <!-- Add Item Form -->
+    <section class="form-section">
+      <h2>Add Item</h2>
+      <form id="itemForm">
+        <input type="text" id="itemName" placeholder="Item Name" required />
+        <input type="number" id="itemCost" placeholder="Cost" min="0" required />
+        <button type="submit">Add Item</button>
+      </form>
+    </section>
+
+    <!-- Add Other Cost Form -->
+    <section class="form-section">
+      <h2>Add Other Cost</h2>
+      <form id="otherCostForm">
+        <input type="text" id="costDescription" placeholder="Description" required />
+        <input type="number" id="costAmount" placeholder="Amount" min="0" required />
+        <button type="submit">Add Cost</button>
+      </form>
+    </section>
+
+    <!-- Item List -->
+    <section class="list-section">
+      <h2>Items</h2>
+      <ul id="itemList"></ul>
+    </section>
+
+    <!-- Other Cost List -->
+    <section class="list-section">
+      <h2>Other Costs</h2>
+      <ul id="otherCostList"></ul>
+    </section>
+
+    <!-- Total Cost -->
+    <section class="total-section">
+      <h2>Total Project Cost: $<span id="totalCost">0.00</span></h2>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

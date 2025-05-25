@@ -1,12 +1,7 @@
+import Gallery from './components/Gallery'
 
-import './App.css';
-import {Route,Switch} from 'react-router-dom'
+import './App.css'
 
+const App=()=> <Gallery />
 
-const App=()=>{
-  <Switch>
-    <Route exact path="/login" component={}/>
-  </Switch>
-}
-
-export default App;
+export default App
